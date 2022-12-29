@@ -30,4 +30,13 @@ public class CategoryService {
         category.id = id;
         categoryRepository.save(category);
     }
+
+    public void delete(Long id) throws Exception {
+        Optional<Category> categoryOptional = this.categoryRepository.findCategoryById(id);
+        if (categoryOptional.isEmpty()) {
+            throw new Exception();
+        }
+        categoryRepository.delete(categoryOptional.get());
+
+    }
 }

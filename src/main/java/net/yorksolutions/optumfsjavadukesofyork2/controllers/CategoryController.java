@@ -39,4 +39,13 @@ public class CategoryController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        try {
+            this.categoryService.delete(id);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
