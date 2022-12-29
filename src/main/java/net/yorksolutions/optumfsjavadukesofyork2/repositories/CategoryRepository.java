@@ -1,6 +1,9 @@
 package net.yorksolutions.optumfsjavadukesofyork2.repositories;
 
+import net.yorksolutions.optumfsjavadukesofyork2.models.Category;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface Category extends CrudRepository {
+@Repository
+public interface CategoryRepository extends CrudRepository<Category, Long> {
 }
