@@ -13,4 +13,13 @@ public class AppUser {
     public String username;
     public String password;
     public Integer role;
+
+    public AppUser() {}
+
+    public AppUser(Long id, String username, String password, Integer role) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 }
