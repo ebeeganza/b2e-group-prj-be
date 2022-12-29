@@ -1,4 +1,4 @@
 package net.yorksolutions.optumfsjavadukesofyork2.repositories;
 
-public interface UserRepository {
+public interface AppUserRepository {
 }
