@@ -13,13 +13,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long id;
     public String name;
+    public String category; // needs to be updated later
     public Double price;
-    public LocalDate date;
+    public LocalDate availabilityDate;
     public String description;
     public boolean discontinued;
     public String images; // needs to be updated later
-    public String ScheduledMaps; // needs to be updated later
-    public String ScheduledPrices; // needs to be updated later
-    public String ScheduledSales; // needs to be updated later
+    public String scheduledMaps; // needs to be updated later
+    public String scheduledPrices; // needs to be updated later
+    public String scheduledSales; // needs to be updated later
     public String shipmentCost; // needs to be updated later
 }
