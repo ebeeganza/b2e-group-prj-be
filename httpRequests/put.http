@@ -1,0 +1,7 @@
+PUT http://localhost:8080/category/1
+Content-Type: application/json
+
+{
+  "name": "updated category name"
+}
+###

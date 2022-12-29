@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/api/category")
+@RequestMapping("/category")
 @CrossOrigin
 public class CategoryController {
     CategoryService categoryService;
@@ -27,6 +27,15 @@ public class CategoryController {
             return categoryService.findAllCategories();
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}")
+    public void modifyCategory(@PathVariable Long id, @RequestBody Category category) {
+        try {
+            categoryService.modifyCategory(id, category);
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.PRECONDITION_FAILED);
         }
     }
 

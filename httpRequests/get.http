@@ -1,4 +1,4 @@
-GET http://localhost:8080/api/category
+GET http://localhost:8080/category
 Accept: application/json
 
 ###

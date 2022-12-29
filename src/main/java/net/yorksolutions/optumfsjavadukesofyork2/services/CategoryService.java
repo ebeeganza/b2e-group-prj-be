@@ -4,6 +4,8 @@ import net.yorksolutions.optumfsjavadukesofyork2.models.Category;
 import net.yorksolutions.optumfsjavadukesofyork2.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CategoryService {
     final CategoryRepository categoryRepository;
@@ -20,4 +22,12 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
+    public void modifyCategory(Long id, Category category) throws Exception {
+        Optional<Category> categoryOptional = categoryRepository.findCategoryById(id);
+        if(categoryOptional.isEmpty()) {
+            throw new Exception();
+        }
+        category.id = id;
+        categoryRepository.save(category);
+    }
 }

@@ -1,4 +1,4 @@
-POST http://localhost:8080/api/category
+POST http://localhost:8080/category
 Content-Type: application/json
 
 {
@@ -6,7 +6,7 @@ Content-Type: application/json
 }
 ###
 
-POST http://localhost:8080/api/category
+POST http://localhost:8080/category
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 ###
 
-POST http://localhost:8080/api/category
+POST http://localhost:8080/category
 Content-Type: application/json
 
 {
