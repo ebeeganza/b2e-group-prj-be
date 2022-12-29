@@ -1,4 +1,4 @@
 package net.yorksolutions.optumfsjavadukesofyork2.services;
 
-public class UserService {
+public class AppUserService {
 }
