@@ -29,7 +29,11 @@ public class OrderController {
 
     @GetMapping
     public Iterable<CustomerOrder> getOrders() {
+        try {
         return service.getOrders();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -61,4 +65,6 @@ public class OrderController {
         return null;
 
     }
-    }
+
+
+}
