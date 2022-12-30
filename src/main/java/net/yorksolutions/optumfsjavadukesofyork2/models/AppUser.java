@@ -1,9 +1,6 @@
 package net.yorksolutions.optumfsjavadukesofyork2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class AppUser {
@@ -22,4 +19,5 @@ public class AppUser {
         this.password = password;
         this.role = role;
     }
+
 }
