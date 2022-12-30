@@ -2,7 +2,6 @@ package net.yorksolutions.optumfsjavadukesofyork2.controllers;
 
 import net.yorksolutions.optumfsjavadukesofyork2.models.AppUser;
 import net.yorksolutions.optumfsjavadukesofyork2.services.AppUserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
