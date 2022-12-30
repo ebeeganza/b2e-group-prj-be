@@ -25,13 +25,13 @@ public class AppUserService {
     public AppUser checkCredentials(String username, String password) {
         return appUserRepository.findAppUserByUsernameAndPassword(username, password).orElseThrow();
     }
-    public void modifyAppUser(Long id, AppUser appUser) throws Exception{
+    public AppUser modifyAppUser(Long id, AppUser appUser) throws Exception{
         Optional<AppUser> appUserOptional = appUserRepository.findById(id);
         if(appUserOptional.isEmpty()) {
             throw new Exception();
         }
         appUser.id = id;
-        appUserRepository.save(appUser);
+        return appUserRepository.save(appUser);
     }
 
     public void delete(Long id) throws Exception {

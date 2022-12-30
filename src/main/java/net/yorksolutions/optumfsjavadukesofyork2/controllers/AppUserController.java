@@ -45,9 +45,9 @@ public class AppUserController {
     }
 
     @PutMapping("/{id}")
-        public void modifyAppUser (@PathVariable Long id, @RequestBody AppUser appUser) {
+        public AppUser modifyAppUser (@PathVariable Long id, @RequestBody AppUser appUser) {
         try {
-            appUserService.modifyAppUser(id, appUser);
+            return appUserService.modifyAppUser(id, appUser);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
