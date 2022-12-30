@@ -2,7 +2,7 @@ POST http://localhost:8080/products
 Content-Type: application/json
 
 {
-  "name": "name",
+  "name": "name4",
   "category": "category",
   "price": 10.00,
   "availabilityDate": "2022-12-29",

@@ -26,17 +26,32 @@ public class ProductService {
         // add logic to check if it exists already
         final var newProduct = new Product();
         newProduct.id = null;
-        newProduct.name = requestProduct.name;
-        newProduct.category = requestProduct.category;
-        newProduct.price = requestProduct.price;
-        newProduct.availabilityDate = requestProduct.availabilityDate;
-        newProduct.description = requestProduct.description;
-        newProduct.discontinued = requestProduct.discontinued;
-        newProduct.images = requestProduct.images;
-        newProduct.scheduledMaps = requestProduct.scheduledMaps;
-        newProduct.scheduledPrices = requestProduct.scheduledPrices;
-        newProduct.scheduledSales = requestProduct.scheduledSales;
-        newProduct.shipmentCost = requestProduct.shipmentCost;
+        copy(requestProduct, newProduct);
         return productRepository.save(newProduct);
+    }
+
+    public Product updateProduct(Long id, Product requestProduct) {
+        final var updateProduct = productRepository.findById(id).orElseThrow();
+        copy(requestProduct, updateProduct);
+        return productRepository.save(updateProduct);
+    }
+
+    public void deleteProduct(Long id) {
+        productRepository.findById(id).orElseThrow();
+        productRepository.deleteById(id);
+    }
+
+    // copies fields in arg 1 to fields in arg 2
+    private void copy(Product requestProduct, Product updateProduct) {
+        updateProduct.name = requestProduct.name;
+        updateProduct.category = requestProduct.category;
+        updateProduct.availabilityDate = requestProduct.availabilityDate;
+        updateProduct.description = requestProduct.description;
+        updateProduct.discontinued = requestProduct.discontinued;
+        updateProduct.images = requestProduct.images;
+        updateProduct.scheduledMaps = requestProduct.scheduledMaps;
+        updateProduct.scheduledPrices = requestProduct.scheduledPrices;
+        updateProduct.scheduledSales = requestProduct.scheduledSales;
+        updateProduct.shipmentCost = requestProduct.shipmentCost;
     }
 }

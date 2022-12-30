@@ -42,4 +42,22 @@ public class ProductController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
+
+    @PutMapping("/{id}")
+    private Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        try {
+            return productService.updateProduct(id, product);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    private void deleteProduct(@PathVariable Long id) {
+        try {
+            productService.deleteProduct(id);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
 }
