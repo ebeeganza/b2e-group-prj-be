@@ -1,0 +1,10 @@
+POST http://localhost:8080/shipment
+Content-Type: application/json
+
+{
+  "productId": 90,
+  "quantity": 6009,
+  "cost": 1200.50
+}
+
+###

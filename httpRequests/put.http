@@ -1,0 +1,10 @@
+PUT http://localhost:8080/shipment/2
+Content-Type: application/json
+
+{
+  "productId": 70,
+  "quantity": 20,
+  "cost": 99.50
+}
+
+###

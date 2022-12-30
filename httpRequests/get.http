@@ -1,0 +1,4 @@
+GET http://localhost:8080/shipment
+Accept: application/json
+
+###
