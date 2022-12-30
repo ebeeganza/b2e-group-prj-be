@@ -17,13 +17,14 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8080/shipment/2
+PUT http://localhost:8080/shipment/1
 Content-Type: application/json
 
 {
   "productId": 70,
   "quantity": 20,
-  "cost": 99.50
+  "cost": 9.50,
+  "date": "2022-12-30"
 }
 
 ###
