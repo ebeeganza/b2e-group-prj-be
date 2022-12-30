@@ -2,6 +2,7 @@ package net.yorksolutions.optumfsjavadukesofyork2.controllers;
 
 import net.yorksolutions.optumfsjavadukesofyork2.models.AppUser;
 import net.yorksolutions.optumfsjavadukesofyork2.services.AppUserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,11 @@ public class AppUserController {
 
     @PostMapping
     public AppUser create(@RequestBody AppUser appUserRequest) {
+    try {
         return this.appUserService.create(appUserRequest);
+    } catch (Exception e) {
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+    }
     }
     @GetMapping
     public Iterable<AppUser> getAllUsers() {
@@ -27,6 +32,15 @@ public class AppUserController {
             return appUserService.getAllUsers();
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(params = {"email","password"})
+    public AppUser checkCredentials(@RequestParam String email, @RequestParam String password) {
+        try {
+            return appUserService.checkCredentials(email, password);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
 
