@@ -1,3 +1,37 @@
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "userId": "12345",
+  "date": "2022-12-29",
+  "products": "products",
+  "orderTotal": "500"
+}
+###
+
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "userId": "23456",
+  "date": "2022-12-29",
+  "products": "more products",
+  "orderTotal": "400"
+}
+###
+
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "userId": "34567",
+  "date": "2022-12-29",
+  "products": "even more products",
+  "orderTotal": "250"
+
+}
+###
+
 POST http://localhost:8080/products
 Content-Type: application/json
 
