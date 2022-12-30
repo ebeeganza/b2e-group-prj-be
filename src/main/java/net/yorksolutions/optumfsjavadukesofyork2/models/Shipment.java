@@ -15,6 +15,5 @@ public class Shipment {
     public Long productId;
     public Long quantity;
     public Double cost;
-
     public LocalDate date;
 }
