@@ -86,3 +86,14 @@ Content-Type: application/json
 }
 ###
 
+
+POST http://localhost:8080/price
+Content-Type: application/json
+
+{
+  "price": "2.37",
+  "date":"2022-12-30"
+
+}
+###
+
