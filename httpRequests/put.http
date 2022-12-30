@@ -1,3 +1,4 @@
+
 PUT http://localhost:8080/shipment/2
 Content-Type: application/json
 
@@ -8,3 +9,12 @@ Content-Type: application/json
 }
 
 ###
+
+PUT http://localhost:8080/category/1
+Content-Type: application/json
+
+{
+  "name": "updated category name"
+}
+###
+
