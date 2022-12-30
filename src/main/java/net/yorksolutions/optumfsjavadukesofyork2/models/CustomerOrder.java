@@ -17,6 +17,7 @@ public class CustomerOrder {
     // Discuss which userid will be used for guest customers
     public Long userId;
     public LocalDate date;
+    public Long orderTotal;
 
     // This will require a relational set-up
     public String products;

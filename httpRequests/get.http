@@ -1,0 +1,11 @@
+GET http://localhost:8080/orders
+Accept: application/json
+###
+
+GET http://localhost:8080/orders/102
+Accept: application/json
+###
+
+GET http://localhost:8080/orders/500
+Accept: application/json
+###
