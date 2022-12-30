@@ -1,0 +1,38 @@
+PUT http://localhost:8080/products/1
+Content-Type: application/json
+
+{
+  "name": "name1",
+  "category": "category",
+  "price": 10.00,
+  "availabilityDate": "2022-12-29",
+  "description": "description",
+  "discontinued": false,
+  "images": "images",
+  "scheduledMaps": "maps",
+  "scheduledPrices": "prices",
+  "scheduledSales": "sales",
+  "shipmentCost": "cost"
+}
+
+###
+
+PUT http://localhost:8080/shipment/2
+Content-Type: application/json
+
+{
+  "productId": 70,
+  "quantity": 20,
+  "cost": 99.50
+}
+
+###
+
+PUT http://localhost:8080/category/1
+Content-Type: application/json
+
+{
+  "name": "updated category name"
+}
+###
+

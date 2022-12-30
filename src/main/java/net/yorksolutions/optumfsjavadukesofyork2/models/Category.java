@@ -6,11 +6,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class AppUser {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
     public Long id;
-    public String username;
-    public String password;
-    public Integer role;
+    public String name;
+
 }
