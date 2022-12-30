@@ -1,3 +1,56 @@
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "userId": "12345",
+  "date": "2022-12-29",
+  "products": "products",
+  "orderTotal": "500"
+}
+###
+
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "userId": "23456",
+  "date": "2022-12-29",
+  "products": "more products",
+  "orderTotal": "400"
+}
+###
+
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "userId": "34567",
+  "date": "2022-12-29",
+  "products": "even more products",
+  "orderTotal": "250"
+
+}
+###
+
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "name": "name4",
+  "category": "category",
+  "price": 10.00,
+  "availabilityDate": "2022-12-29",
+  "description": "description",
+  "discontinued": false,
+  "images": "images",
+  "scheduledMaps": "maps",
+  "scheduledPrices": "prices",
+  "scheduledSales": "sales",
+  "shipmentCost": "cost"
+}
+
+###
+
 POST http://localhost:8080/shipment
 Content-Type: application/json
 

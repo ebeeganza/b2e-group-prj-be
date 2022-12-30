@@ -1,6 +1,6 @@
 Description: This application will support a small online only business to keep track of its inventory and serve its customers.
 There are three types of users: administrators, shopkeepers, and customers.
-Administrators need to be able to manage all types of user accounts. Shop keepers must be able to manage all aspects of inventory, sales, and order fulfillment.
+Administrators need to be able to manage all types of user accounts. Shop keepers must be able to manage all aspects of inventory, sales, and custOrder fulfillment.
 Customers must be able to place orders as guests, or with a customer account.
 
 Requirements:
