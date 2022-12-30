@@ -16,3 +16,39 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://localhost:8080/shipment
+Content-Type: application/json
+
+{
+  "productId": 90,
+  "quantity": 6009,
+  "cost": 1200.50
+}
+
+###
+
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "name": "fruits"
+}
+###
+
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "name": "vegetables"
+}
+###
+
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "name": "meat"
+}
+###
+
