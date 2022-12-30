@@ -40,6 +40,7 @@ public class ShipmentService {
         updatedShipment.productId = shipment.productId;
         updatedShipment.quantity = shipment.quantity;
         updatedShipment.cost = shipment.cost;
+        updatedShipment.date = shipment.date;
 
         return shipmentRepository.save(updatedShipment);
     }
