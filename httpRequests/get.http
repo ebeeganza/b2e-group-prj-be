@@ -1,3 +1,6 @@
+GET http://localhost:8080/products
+Accept: application/json
+###
 
 GET http://localhost:8080/shipment
 Accept: application/json
