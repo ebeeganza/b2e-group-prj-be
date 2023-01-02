@@ -31,3 +31,70 @@ Content-Type: application/json
 
 }
 ###
+
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "name": "name4",
+  "category": "category",
+  "price": 10.00,
+  "availabilityDate": "2022-12-29",
+  "description": "description",
+  "discontinued": false,
+  "images": "images",
+  "scheduledMaps": "maps",
+  "scheduledPrices": "prices",
+  "scheduledSales": "sales",
+  "shipmentCost": "cost"
+}
+
+###
+
+POST http://localhost:8080/shipment
+Content-Type: application/json
+
+{
+  "productId": 90,
+  "quantity": 6009,
+  "cost": 1200.50,
+  "date": "2022-12-30"
+}
+
+###
+
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "name": "fruits"
+}
+###
+
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "name": "vegetables"
+}
+###
+
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "name": "meat"
+}
+###
+
+
+POST http://localhost:8080/price
+Content-Type: application/json
+
+{
+  "price": 2.37,
+  "date":"2022-12-30"
+
+}
+###
+

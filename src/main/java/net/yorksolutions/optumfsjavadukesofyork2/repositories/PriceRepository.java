@@ -1,13 +1,10 @@
 package net.yorksolutions.optumfsjavadukesofyork2.repositories;
 
-import net.yorksolutions.optumfsjavadukesofyork2.models.AppUser;
+
+import net.yorksolutions.optumfsjavadukesofyork2.models.Price;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-
-public interface AppUserRepository extends CrudRepository<AppUser,Long> {
-
+public interface PriceRepository extends CrudRepository<Price, Long> {
 }
