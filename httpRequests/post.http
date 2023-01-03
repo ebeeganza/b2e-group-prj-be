@@ -1,4 +1,46 @@
+POST http://localhost:8080/cart
+Content-Type: application/json
+
+{
+  "userId": "007",
+  "products": "milk"
+}
+
+###
+
+PUT http://localhost:8080/cart/53
+Content-Type: application/json
+
+{
+  "userId": "100",
+  "products": "milkshakes"
+}
+
+###
+
+DELETE http://localhost:8080/cart/52
+Content-Type: application/json
+
+{
+  "userId": "123",
+  "products": "sugar"
+}
+
+###
+
+GET http://localhost:8080/cart/54
+Content-Type: application/json
+
+{
+  "userId": "123",
+  "products": "sugar"
+}
+
+###
+
+
 POST http://localhost:8080/users
+
 Content-Type: application/json
 
 {
