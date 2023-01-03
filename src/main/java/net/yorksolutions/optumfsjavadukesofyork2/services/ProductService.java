@@ -52,6 +52,6 @@ public class ProductService {
         updateProduct.scheduledMaps = requestProduct.scheduledMaps;
         updateProduct.scheduledPrices = requestProduct.scheduledPrices;
         updateProduct.scheduledSales = requestProduct.scheduledSales;
-        updateProduct.shipmentCost = requestProduct.shipmentCost;
+        updateProduct.shipments = requestProduct.shipments;
     }
 }

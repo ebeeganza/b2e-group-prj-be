@@ -19,7 +19,11 @@ public class AppUserController {
 
     @PostMapping
     public AppUser create(@RequestBody AppUser appUserRequest) {
+    try {
         return this.appUserService.create(appUserRequest);
+    } catch (Exception e) {
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+    }
     }
     @GetMapping
     public Iterable<AppUser> getAllUsers() {
@@ -30,10 +34,19 @@ public class AppUserController {
         }
     }
 
-    @PutMapping("/{id}")
-        public void modifyAppUser (@PathVariable Long id, @RequestBody AppUser appUser) {
+    @GetMapping(params = {"email","password"})
+    public AppUser checkCredentials(@RequestParam String email, @RequestParam String password) {
         try {
-            appUserService.modifyAppUser(id, appUser);
+            return appUserService.checkCredentials(email, password);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
+
+    @PutMapping("/{id}")
+        public AppUser modifyAppUser (@PathVariable Long id, @RequestBody AppUser appUser) {
+        try {
+            return appUserService.modifyAppUser(id, appUser);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }

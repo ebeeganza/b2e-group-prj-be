@@ -1,11 +1,9 @@
 package net.yorksolutions.optumfsjavadukesofyork2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -13,14 +11,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long id;
     public String name;
-    public String category; // needs to be updated later
+    @OneToOne
+    public Category category;
     public Double price;
     public LocalDate availabilityDate;
     public String description;
     public boolean discontinued;
-    public String images; // needs to be updated later
-    public String scheduledMaps; // needs to be updated later
-    public String scheduledPrices; // needs to be updated later
-    public String scheduledSales; // needs to be updated later
-    public String shipmentCost; // needs to be updated later
+    public String images;
+    @OneToMany
+    public List<Price> scheduledMaps;
+    @OneToMany
+    public List<Price> scheduledPrices;
+    @OneToMany
+    public List<Price> scheduledSales;
+    @OneToMany
+    public List<Shipment> shipments;
 }

@@ -13,19 +13,25 @@ public class AppUserService {
     public AppUserService(AppUserRepository appUserRepository) {
         this.appUserRepository = appUserRepository;
     }
-    public AppUser create(AppUser appUserRequest) {
+    public AppUser create(AppUser appUserRequest) throws Exception {
+        if (appUserRepository.findAppUserByEmail(appUserRequest.email).isPresent()) {
+            throw new Exception("username is taken");
+        }
         return this.appUserRepository.save(appUserRequest);
     }
     public Iterable<AppUser> getAllUsers(){
         return appUserRepository.findAll();
     }
-    public void modifyAppUser(Long id, AppUser appUser) throws Exception{
+    public AppUser checkCredentials(String email, String password) {
+        return appUserRepository.findAppUserByEmailAndPassword(email, password).orElseThrow();
+    }
+    public AppUser modifyAppUser(Long id, AppUser appUser) throws Exception{
         Optional<AppUser> appUserOptional = appUserRepository.findById(id);
         if(appUserOptional.isEmpty()) {
             throw new Exception();
         }
         appUser.id = id;
-        appUserRepository.save(appUser);
+        return appUserRepository.save(appUser);
     }
 
     public void delete(Long id) throws Exception {

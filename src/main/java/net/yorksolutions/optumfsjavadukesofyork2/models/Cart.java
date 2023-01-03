@@ -2,16 +2,18 @@ package net.yorksolutions.optumfsjavadukesofyork2.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-public class AppUser {
+public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long id;
-    public String fname;
-    public String lname;
-    public String email;
-    public String password;
-    public Integer role;
+    public Long userId;
+
+
+    @OneToMany
+    public List<Product> products;
 
 
 }
