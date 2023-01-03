@@ -39,10 +39,10 @@ public class CouponController {
     }
 
 
-    @GetMapping("/{id}")
-    public Optional<Coupon> getCouponInfoById(@PathVariable (required = false) Long id) {
+    @GetMapping("/code/{code}")
+    public Optional<Coupon> getCouponInfoByCode(@PathVariable (required = false) String code) {
         try {
-            return service.getCouponInfoById(id);
+            return service.getCouponInfoByCode(code);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }

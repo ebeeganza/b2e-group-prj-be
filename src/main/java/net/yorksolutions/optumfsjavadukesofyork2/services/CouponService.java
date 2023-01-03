@@ -26,8 +26,8 @@ public class CouponService {
     }
 
 
-    public Optional<Coupon> getCouponInfoById(Long id) {
-        return repository.findById(id);
+    public Optional<Coupon> getCouponInfoByCode(String code) {
+       return repository.findCouponByCode(code);
     }
 
 
