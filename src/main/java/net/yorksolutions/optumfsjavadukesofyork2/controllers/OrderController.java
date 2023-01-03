@@ -3,8 +3,10 @@ package net.yorksolutions.optumfsjavadukesofyork2.controllers;
 import net.yorksolutions.optumfsjavadukesofyork2.models.CustomerOrder;
 import net.yorksolutions.optumfsjavadukesofyork2.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -27,38 +29,35 @@ public class OrderController {
     }
 
 
+
     @GetMapping
     public Iterable<CustomerOrder> getOrders() {
+        try {
         return service.getOrders();
-
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
     }
 
 
     @GetMapping("/{id}")
     public Optional<CustomerOrder> getOrderInfoById(@PathVariable (required = false) Long id) {
+        try {
         return service.getOrderInfoById(id);
-
+    } catch (Exception e) {
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
+}
 
-
-/*
-
-    @GetMapping("/{userId}")
-    public Optional<CustomerOrder> getOrderInfoByCustomer(@PathVariable (required = false) Long userId) {
-        return service.getOrderInfoByCustomer(userId);
-
-    }
-*/
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteOrder(@PathVariable (required = false) Long id) {
-        try {
-            service.deleteOrder(id);
-            service.getOrders();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return null;
+    public void deleteOrder(@PathVariable Long id) {
+            try {
+        service.deleteOrder(id);
+    } catch (Exception e) {
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+ }
 
-    }
-    }
+
+}
