@@ -24,7 +24,7 @@ public class CategoryController {
     @GetMapping
     public Iterable<Category> getCategories() {
         try {
-            return categoryService.findAllCategories();
+            return categoryService.findByOrderByName();
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
