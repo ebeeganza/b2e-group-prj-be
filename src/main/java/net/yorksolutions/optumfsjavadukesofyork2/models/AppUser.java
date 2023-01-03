@@ -9,7 +9,7 @@ public class AppUser {
     public Long id;
     public String fname;
     public String lname;
-    public String username;
+    public String email;
     public String password;
     public Integer role;
 
