@@ -38,14 +38,15 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:8080/orders
+
+POST http://localhost:8080/users
+
 Content-Type: application/json
 
 {
-  "userId": "12345",
-  "date": "2022-12-29",
-  "products": "products",
-  "orderTotal": "500"
+  "username": "you",
+  "password": "you@foo.bar",
+  "role": 0
 }
 ###
 
