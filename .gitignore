@@ -37,4 +37,6 @@ out/
 .vscode/
 
 db/data
-httpRequests
+httpRequests/
+httpR/
+
