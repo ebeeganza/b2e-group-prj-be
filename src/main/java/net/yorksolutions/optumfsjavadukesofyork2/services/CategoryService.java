@@ -18,8 +18,8 @@ public class CategoryService {
         return this.categoryRepository.save(categoryRequest);
     }
 
-    public Iterable<Category> findAllCategories(){
-        return categoryRepository.findAll();
+    public Iterable<Category> findByOrderByName(){
+        return categoryRepository.findByOrderByName();
     }
 
     public void modifyCategory(Long id, Category category) throws Exception {
