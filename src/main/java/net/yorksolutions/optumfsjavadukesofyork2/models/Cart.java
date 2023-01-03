@@ -1,9 +1,8 @@
 package net.yorksolutions.optumfsjavadukesofyork2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Cart {
@@ -11,5 +10,10 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long id;
     public Long userId;
-    public String products;   // to be determined later
+
+
+    @OneToMany
+    public List<Product> products;
+
+
 }
