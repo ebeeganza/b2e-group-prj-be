@@ -1,12 +1,10 @@
 package net.yorksolutions.optumfsjavadukesofyork2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class CustomerOrder {
@@ -15,10 +13,13 @@ public class CustomerOrder {
     public Long id;
 
     // Discuss which userid will be used for guest customers
-    public Long userId;
+    public String email;
     public LocalDate date;
     public Long orderTotal;
 
     // This will require a relational set-up
     public String products;
+
+  //  @OneToMany
+  //  public List<Product> products;
 }

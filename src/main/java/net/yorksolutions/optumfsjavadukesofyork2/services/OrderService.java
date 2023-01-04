@@ -1,6 +1,7 @@
 package net.yorksolutions.optumfsjavadukesofyork2.services;
 
 import net.yorksolutions.optumfsjavadukesofyork2.models.CustomerOrder;
+import net.yorksolutions.optumfsjavadukesofyork2.models.Product;
 import net.yorksolutions.optumfsjavadukesofyork2.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,8 @@ public class OrderService {
     }
 
 
-
     public void addNewOrder(CustomerOrder customerOrder) {
+    //    final var newProduct = new Product();
         repository.save(customerOrder);
     }
 
@@ -31,12 +32,10 @@ public class OrderService {
     }
 
 
-
-/*
-    public Optional<CustomerOrder> getOrderInfoByCustomer(Long userId) {
-        return repository.findById(userId);
+    public Optional<CustomerOrder> getOrderInfoByEmail(String email) {
+        return repository.getOrderInfoByEmail(email);
     }
-*/
+
 
 
 
