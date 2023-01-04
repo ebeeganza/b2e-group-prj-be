@@ -10,6 +10,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long id;
+
     public String name;
     @OneToOne
     public Category category;
@@ -25,4 +26,8 @@ public class Product {
     public List<Price> scheduledSales;
     @OneToMany(cascade = CascadeType.ALL)
     public List<Shipment> shipments;
+
+    public Product(){
+
+    }
 }

@@ -35,28 +35,40 @@ public class ProductController {
     }
 
     @PostMapping
-    private void createProduct(@RequestBody Product product) {
+    private void createProduct(@RequestBody Product product, @RequestParam String email, @RequestParam String password) {
         try {
-            productService.createProduct(product);
+            productService.createProduct(product,email,password);
+        } catch (IllegalStateException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        } catch (IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.PRECONDITION_FAILED);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+            throw new ResponseStatusException(HttpStatus.NOT_MODIFIED, e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    private void updateProduct(@PathVariable Long id, @RequestBody Product product) {
+    private void updateProduct(@PathVariable Long id, @RequestBody Product product, @RequestParam String email, @RequestParam String password) {
         try {
-            productService.updateProduct(id, product);
-        } catch (Exception e) {
+            productService.updateProduct(id, product, email, password);
+        } catch (IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        } catch (IllegalStateException e){
+            throw new ResponseStatusException(HttpStatus.NOT_MODIFIED);
+        } catch (IllegalAccessException e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.MULTI_STATUS);
         }
     }
 
     @DeleteMapping("/{id}")
-    private void deleteProduct(@PathVariable Long id) {
+    private void deleteProduct(@PathVariable Long id, @RequestParam String email, @RequestParam String password) {
         try {
-            productService.deleteProduct(id);
-        } catch (Exception e) {
+            productService.deleteProduct(id, email, password);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        } catch (Exception e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
