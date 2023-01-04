@@ -44,11 +44,11 @@ public class AppUserController {
     }
 
     @PutMapping("/{id}")
-        public AppUser modifyAppUser (@PathVariable Long id, @RequestBody AppUser appUser) {
+        public AppUser modifyAppUser (@PathVariable Long id, @RequestBody AppUser appUser, @RequestParam String email, @RequestParam String password) {
         try {
-            return appUserService.modifyAppUser(id, appUser);
+            return appUserService.modifyAppUser(id, appUser, email, password);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
     @DeleteMapping("/{id}")
