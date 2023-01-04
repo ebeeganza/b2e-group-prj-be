@@ -16,8 +16,8 @@ Content-Type: application/json
 {
   "email": "you@biteme.com",
   "date": "2022-12-29",
-  "products": ["more products, more and more"],
-  "orderTotal": "400"
+  "products": [],
+  "orderTotal": 500
 }
 ###
 
