@@ -34,7 +34,13 @@ public class AppUserService {
         return appUserRepository.save(appUser);
     }
 
-    public void delete(Long id) throws Exception {
+    public void delete(Long id, AppUser user) throws Exception {
+        if (user.role == 2 && user.id == id) {
+            throw new Exception("admin cannot delete their own account");
+        }
+        if (user.role != 2 && user.id != id) {
+            throw new Exception("customers and storekeepers can only delete their own accounts");
+        }
         Optional<AppUser> appUserOptional = this.appUserRepository.findById(id);
         if(appUserOptional.isEmpty()) {
             throw new Exception();

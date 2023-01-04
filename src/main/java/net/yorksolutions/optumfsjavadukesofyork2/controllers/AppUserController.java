@@ -52,9 +52,9 @@ public class AppUserController {
         }
     }
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable Long id, @RequestBody AppUser appUser) {
         try {
-            this.appUserService.delete(id);
+            this.appUserService.delete(id, appUser);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
