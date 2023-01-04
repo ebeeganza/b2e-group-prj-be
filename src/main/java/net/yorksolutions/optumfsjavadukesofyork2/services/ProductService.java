@@ -21,7 +21,7 @@ public class ProductService {
     }
 
     public Iterable<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productRepository.findByOrderByName();
     }
 
     public Product getProductById(Long id) {
