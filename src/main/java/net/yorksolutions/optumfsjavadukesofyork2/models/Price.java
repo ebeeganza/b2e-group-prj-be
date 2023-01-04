@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class Price {
+public class Price implements Comparable<Price>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -17,4 +17,9 @@ public class Price {
     public double price;
     public LocalDate startDate;
     public LocalDate endDate;
+
+    @Override
+    public int compareTo(Price price){
+        return startDate.compareTo(price.startDate);
+    }
 }
