@@ -18,7 +18,10 @@ public class CartController {
     @Autowired
     public CartController(CartService service) { this.service = service; }
 
-
+    @GetMapping
+    public Iterable<Cart> getAllCarts() {
+        return service.getAllCarts();
+    }
     @GetMapping("/{userId}")
     public Cart getACart (@PathVariable Long userId) {
         try {
