@@ -17,7 +17,7 @@ Content-Type: application/json
   "email": "you@biteme.com",
   "date": "2022-12-29",
   "products": [],
-  "orderTotal": 400
+  "orderTotal": 500
 }
 ###
 
