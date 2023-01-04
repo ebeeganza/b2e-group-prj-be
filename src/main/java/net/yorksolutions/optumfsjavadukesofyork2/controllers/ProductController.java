@@ -35,18 +35,18 @@ public class ProductController {
     }
 
     @PostMapping
-    private Product createProduct(@RequestBody Product product) {
+    private void createProduct(@RequestBody Product product) {
         try {
-            return productService.createProduct(product);
+            productService.createProduct(product);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    private Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
+    private void updateProduct(@PathVariable Long id, @RequestBody Product product) {
         try {
-            return productService.updateProduct(id, product);
+            productService.updateProduct(id, product);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }

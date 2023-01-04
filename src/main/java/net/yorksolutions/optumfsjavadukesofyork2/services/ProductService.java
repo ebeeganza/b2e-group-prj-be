@@ -28,18 +28,17 @@ public class ProductService {
         return productRepository.findById(id).orElseThrow();
     }
 
-    public Product createProduct(Product requestProduct) throws Exception {
+    public void createProduct(Product requestProduct) throws Exception {
         // add logic to check if it exists already
         final var newProduct = new Product();
-        newProduct.id = null;
         copy(requestProduct, newProduct);
-        return productRepository.save(newProduct);
+        productRepository.save(newProduct);
     }
 
-    public Product updateProduct(Long id, Product requestProduct) {
+    public void updateProduct(Long id, Product requestProduct) {
         final var updateProduct = productRepository.findById(id).orElseThrow();
         copy(requestProduct, updateProduct);
-        return productRepository.save(updateProduct);
+        productRepository.save(updateProduct);
     }
 
     public void deleteProduct(Long id) {
