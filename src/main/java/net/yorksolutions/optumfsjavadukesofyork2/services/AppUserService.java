@@ -42,10 +42,7 @@ public class AppUserService {
         if (client.role != 2 && client.id != id) {
             throw new Exception("customers and storekeepers can only delete their own accounts");
         }
-        Optional<AppUser> appUserOptional = this.appUserRepository.findById(id);
-        if(appUserOptional.isEmpty()) {
-            throw new Exception();
-        }
-        appUserRepository.delete(appUserOptional.get());
+        appUserRepository.findById(id).orElseThrow();
+        appUserRepository.deleteById(id);
     }
 }
