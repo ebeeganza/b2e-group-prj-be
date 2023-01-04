@@ -82,6 +82,7 @@ public class ProductService {
         Collections.sort(newProduct.scheduledSales);
         Collections.sort(newProduct.shipments);
 
+
         productRepository.save(newProduct);
     }
 
