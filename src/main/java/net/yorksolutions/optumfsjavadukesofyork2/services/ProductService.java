@@ -31,7 +31,6 @@ public class ProductService {
     public Product createProduct(Product requestProduct) throws Exception {
         // add logic to check if it exists already
         final var newProduct = new Product();
-        newProduct.id = null;
         copy(requestProduct, newProduct);
         return productRepository.save(newProduct);
     }
