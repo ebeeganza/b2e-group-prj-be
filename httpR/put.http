@@ -36,4 +36,15 @@ Content-Type: application/json
   "name": "updated category name"
 }
 ###
+PUT http://localhost:8080/coupons/3
+Content-Type: application/json
+
+{
+  "code": "save20",
+  "discount":"20",
+  "orderTotalMinimum": "300",
+  "startDate": "2023-01-10",
+  "endDate": "2023-03-10"
+}
+###
 

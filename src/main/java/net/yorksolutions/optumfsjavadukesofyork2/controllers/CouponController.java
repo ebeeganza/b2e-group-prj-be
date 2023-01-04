@@ -14,6 +14,7 @@ import java.util.Optional;
 @CrossOrigin
 public class CouponController {
     private final CouponService service;
+
     @Autowired
     public CouponController(CouponService service) {
         this.service = service;
@@ -27,6 +28,17 @@ public class CouponController {
         return null;
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateCoupon(@RequestBody Coupon coupon, @PathVariable Long id) throws Exception {
+        try {
+            service.deleteCoupon(id);
+            service.addNewCoupon(coupon);
+            service.getCoupons();
+            return null;
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
 
 
     @GetMapping
