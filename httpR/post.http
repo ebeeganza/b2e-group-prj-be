@@ -14,9 +14,9 @@ POST http://localhost:8080/orders
 Content-Type: application/json
 
 {
-  "userId": "23456",
+  "email": "you@biteme.com",
   "date": "2022-12-29",
-  "products": "more products",
+  "products": ["more products, more and more"],
   "orderTotal": "400"
 }
 ###
@@ -25,7 +25,7 @@ POST http://localhost:8080/orders
 Content-Type: application/json
 
 {
-  "userId": "34567",
+  "email": "you@biteme.com",
   "date": "2022-12-29",
   "products": "even more products",
   "orderTotal": "250"

@@ -29,7 +29,6 @@ public class OrderController {
     }
 
 
-
     @GetMapping
     public Iterable<CustomerOrder> getOrders() {
         try {
@@ -49,6 +48,14 @@ public class OrderController {
     }
 }
 
+    @GetMapping("/user/{email}")
+    public Optional<CustomerOrder> getOrderInfoByEmail(@PathVariable (required = false) String email) {
+        try {
+            return service.getOrderInfoByEmail(email);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @DeleteMapping("/{id}")
     public void deleteOrder(@PathVariable Long id) {
