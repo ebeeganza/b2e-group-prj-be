@@ -15,5 +15,6 @@ public class Price {
 
     public long id;
     public double price;
-    public LocalDate date;
+    public LocalDate startDate;
+    public LocalDate endDate;
 }

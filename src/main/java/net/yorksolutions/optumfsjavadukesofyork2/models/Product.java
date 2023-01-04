@@ -13,17 +13,16 @@ public class Product {
     public String name;
     @OneToOne
     public Category category;
-    public Double price;
-    public LocalDate availabilityDate;
+    public LocalDate availability;
     public String description;
     public boolean discontinued;
-    public String images;
-    @OneToMany
+    public String image;
+    @OneToMany(cascade = CascadeType.ALL)
     public List<Price> scheduledMaps;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     public List<Price> scheduledPrices;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     public List<Price> scheduledSales;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     public List<Shipment> shipments;
 }
