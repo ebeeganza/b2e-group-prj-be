@@ -18,8 +18,8 @@ public class CustomerOrder {
     public Long orderTotal;
 
     // This will require a relational set-up
-    public String products;
+    //public String products;
 
-  //  @OneToMany
-  //  public List<Product> products;
+   @OneToMany
+   public List<Product> products;
 }
