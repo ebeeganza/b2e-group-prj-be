@@ -27,14 +27,15 @@ public class CartService {
     public Cart getACart(Long userId) throws Exception {
         if (cartRepository.findById(userId).isEmpty())
             throw new Exception();
-        final var userCart = cartRepository.findById(userId).orElseThrow();
+        final var userCart = cartRepository.findByUserId(userId).orElseThrow();
         return userCart;
     }
 
     public Cart addNewCart(Cart cart) throws Exception {
-        if (cartRepository.findById(cart.userId).isPresent())
-            throw new Exception();
-
+        if(cart.id != null) {
+            if (cartRepository.findById(cart.userId).isPresent())
+                throw new Exception();
+        }
         return cartRepository.save(cart);
     }
 
