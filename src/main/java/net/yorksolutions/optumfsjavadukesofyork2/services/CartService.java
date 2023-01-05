@@ -20,6 +20,10 @@ public class CartService {
 
     // logics to fns
 
+    public Iterable<Cart> getAllCarts() {
+        return cartRepository.findAll();
+    }
+
     public Cart getACart(Long userId) throws Exception {
         if (cartRepository.findById(userId).isEmpty())
             throw new Exception();
