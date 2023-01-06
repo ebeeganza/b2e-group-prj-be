@@ -52,7 +52,7 @@ public class ProductService {
     public void updateProduct(Long id, Product requestProduct, String email, String password) throws Exception{
         final var client = appUserRepository.findAppUserByEmailAndPassword(email, password).orElseThrow();
 
-        if(client.role != 1){
+        if(client.role == 2){
             throw new IllegalArgumentException();
         }
 
