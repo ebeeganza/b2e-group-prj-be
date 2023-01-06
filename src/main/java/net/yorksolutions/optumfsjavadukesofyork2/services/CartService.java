@@ -25,9 +25,17 @@ public class CartService {
     }
 
     public Cart getACart(Long userId) throws Exception {
-        if (cartRepository.findById(userId).isEmpty())
+        System.out.println("Starting service function.");
+        System.out.println(userId);
+
+        if (cartRepository.findCartByUserId(userId).isEmpty()) {
+            System.out.println("Cart not found.");
             throw new Exception();
-        final var userCart = cartRepository.findByUserId(userId).orElseThrow();
+        }
+
+
+        System.out.println("Looking for cart...");
+        final var userCart = cartRepository.findCartByUserId(userId).orElseThrow();
         return userCart;
     }
 
@@ -39,10 +47,10 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public Cart updateCart(Long userId, Cart cart) throws Exception {
-        if (cartRepository.findById(userId).isEmpty())
+    public Cart updateCart(Cart cart) throws Exception {
+        if (cartRepository.findCartByUserId(cart.userId).isEmpty())
             throw new Exception();
-        final var updatedCart = cartRepository.findById(userId).orElseThrow();
+        final var updatedCart = cartRepository.findCartByUserId(cart.userId).orElseThrow();
         updatedCart.userId = cart.userId;
         updatedCart.products = cart.products;
 

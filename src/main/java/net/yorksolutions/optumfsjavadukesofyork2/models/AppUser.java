@@ -7,6 +7,7 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long id;
+
     public String fname;
     public String lname;
     public String email;

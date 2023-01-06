@@ -18,12 +18,15 @@ public class CartController {
     @Autowired
     public CartController(CartService service) { this.service = service; }
 
+    /*
     @GetMapping
     public Iterable<Cart> getAllCarts() {
         return service.getAllCarts();
     }
-    @GetMapping("/{userId}")
-    public Cart getACart (@PathVariable Long userId) {
+
+     */
+    @GetMapping
+    public Cart getACart (@RequestParam Long userId) {
         try {
             return service.getACart(userId);
         } catch (Exception e) {
@@ -40,10 +43,10 @@ public class CartController {
         }
     }
 
-    @PutMapping("/{userId}")
-    public Cart updateCart (@PathVariable Long userId, @RequestBody Cart cart) {
+    @PutMapping
+    public Cart updateCart (@RequestBody Cart cart) {
         try {
-            return service.updateCart(userId, cart);
+            return service.updateCart(cart);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }

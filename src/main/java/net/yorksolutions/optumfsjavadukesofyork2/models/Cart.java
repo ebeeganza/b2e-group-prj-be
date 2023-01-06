@@ -9,6 +9,7 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long id;
+
     public Long userId;
 
 
