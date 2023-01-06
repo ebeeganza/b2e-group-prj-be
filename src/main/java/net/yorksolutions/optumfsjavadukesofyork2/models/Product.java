@@ -27,7 +27,8 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL)
     public List<Shipment> shipments;
 
-    public Product(){
+    @ManyToMany
+    public List<CustomerOrder> orders;
 
-    }
+    public Product(){}
 }

@@ -1,6 +1,8 @@
 package net.yorksolutions.optumfsjavadukesofyork2.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Any;
+import org.hibernate.annotations.ManyToAny;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -16,10 +18,12 @@ public class CustomerOrder {
     public String email;
     public LocalDate date;
     public Long orderTotal;
+    public String products;
 
-    // This will require a relational set-up
-    //public String products;
+    /*
+    @ManyToMany
+    public List<Product> products;
 
-   @OneToMany
-   public List<Product> products;
+     */
+
 }
