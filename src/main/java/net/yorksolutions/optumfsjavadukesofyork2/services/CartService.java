@@ -40,6 +40,9 @@ public class CartService {
     }
 
     public Cart addNewCart(Cart cart) throws Exception {
+        if (cartRepository.findCartByUserId(cart.userId).isPresent()) {
+            throw new Exception("user already has a cart");
+        }
         if(cart.id != null) {
             if (cartRepository.findById(cart.userId).isPresent())
                 throw new Exception();
