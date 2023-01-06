@@ -1,19 +1,25 @@
 package net.yorksolutions.optumfsjavadukesofyork2.services;
 
+import net.yorksolutions.optumfsjavadukesofyork2.dto.OrdersRequest;
 import net.yorksolutions.optumfsjavadukesofyork2.models.CustomerOrder;
 import net.yorksolutions.optumfsjavadukesofyork2.models.Product;
 import net.yorksolutions.optumfsjavadukesofyork2.repositories.OrderRepository;
+import net.yorksolutions.optumfsjavadukesofyork2.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.*;
+
+import static java.lang.Long.parseLong;
 
 @Service
 public class OrderService {
 
     private final OrderRepository repository;
+    private final ProductRepository productRepository;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, ProductRepository productRepository) {
         this.repository = orderRepository;
+        this.productRepository = productRepository;
     }
 
 
@@ -22,8 +28,31 @@ public class OrderService {
         repository.save(customerOrder);
     }
 
-    public Iterable<CustomerOrder> getOrders() {
-        return repository.findAll();
+    public Iterable<OrdersRequest> getOrders() {
+        List<OrdersRequest> ordersRequest = new ArrayList<>();
+
+        for(var order : repository.findAll()){
+            OrdersRequest newOrder = new OrdersRequest();
+            newOrder.id = order.id;
+            newOrder.date = order.date;
+            newOrder.orderTotal = order.orderTotal;
+            newOrder.email = order.email;
+
+            //create list of products
+            List<Product> newProducts = new ArrayList<Product>();
+
+            String[] productsStrings = order.products.split(",");
+
+            for (var id : productsStrings){
+                newProducts.add(productRepository.findById(parseLong(id)).orElseThrow());
+            }
+
+            newOrder.products = newProducts;
+
+            ordersRequest.add(newOrder);
+        }
+
+        return ordersRequest;
     }
 
 

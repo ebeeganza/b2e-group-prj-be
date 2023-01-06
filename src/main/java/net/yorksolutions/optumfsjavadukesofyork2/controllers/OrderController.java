@@ -1,5 +1,6 @@
 package net.yorksolutions.optumfsjavadukesofyork2.controllers;
 
+import net.yorksolutions.optumfsjavadukesofyork2.dto.OrdersRequest;
 import net.yorksolutions.optumfsjavadukesofyork2.models.CustomerOrder;
 import net.yorksolutions.optumfsjavadukesofyork2.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,13 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<Void> addNewOrder(@RequestBody CustomerOrder customerOrder) throws Exception {
         service.addNewOrder(customerOrder);
-        service.getOrders();
+        //service.getOrders();
         return null;
     }
 
 
     @GetMapping
-    public Iterable<CustomerOrder> getOrders() {
+    public Iterable<OrdersRequest> getOrders() {
         try {
         return service.getOrders();
         } catch (Exception e) {
