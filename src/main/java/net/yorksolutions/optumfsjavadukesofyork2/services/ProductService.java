@@ -46,7 +46,6 @@ public class ProductService {
                 throw new IllegalStateException();
             }
         }
-
         productRepository.save(requestProduct);
     }
 
@@ -57,10 +56,10 @@ public class ProductService {
             throw new IllegalArgumentException();
         }
 
-        // ensure the product id does not already exist
+        // ensure the product id exists
         if(requestProduct.id != null) {
             var product = productRepository.findById(requestProduct.id);
-            if (!product.isPresent()) {
+            if (product.isEmpty()) {
                 throw new IllegalStateException();
             }
         }
@@ -81,7 +80,6 @@ public class ProductService {
         Collections.sort(newProduct.scheduledPrices);
         Collections.sort(newProduct.scheduledSales);
         Collections.sort(newProduct.shipments);
-
 
         productRepository.save(newProduct);
     }
